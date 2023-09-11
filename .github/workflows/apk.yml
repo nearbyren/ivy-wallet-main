@@ -1,0 +1,56 @@
+name: APK
+
+on:
+  # Triggers the workflow on push or pull request events
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+jobs:
+  assemble_demo_apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GIT
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '18'
+
+      - name: Enable Gradle Wrapper caching (optmization)
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Build Demo APK
+        run: ./gradlew assembleDemo
+
+      - name: Upload APK to Github Actions
+        uses: actions/upload-artifact@v3
+        with:
+          name: Ivy-Wallet-Demo.apk
+          path: app/build/outputs/apk/demo/app-demo.apk
+
+      - name: Upload APK in Telegram Group
+        if: |
+          github.ref == 'refs/heads/main' &&
+          github.event.head_commit.author.name != 'dependabot[bot]'
+        run: |
+          COMMIT_LINK="https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+          COMMIT_MESSAGE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}" | jq -r .commit.message)
+          CAPTION=$'Ivy Wallet Demo APK:\n\n'"$COMMIT_MESSAGE"$'\n\ncommit: '"$COMMIT_LINK"
+          
+          curl -F "chat_id=-1001647280565" \
+               -F "document=@app/build/outputs/apk/demo/app-demo.apk" \
+               -F "reply_to_message_id=16118" \
+               -F "caption=$CAPTION" \
+               https://api.telegram.org/bot${{ secrets.BOTFATHER_TELEGRAM_BOT_TOKEN }}/sendDocument
