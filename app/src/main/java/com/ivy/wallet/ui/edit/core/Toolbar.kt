@@ -31,6 +31,7 @@ fun Toolbar(
 
         val nav = navigation()
         CloseButton {
+            println("我来了 back")
             nav.back()
         }
 

@@ -103,6 +103,9 @@ class OnboardingViewModel @Inject constructor(
 
     fun start(screen: Onboarding, isSystemDarkMode: Boolean) {
         viewModelScope.launch {
+
+            println("我来了 OnboardingViewModel start")
+
             TestIdlingResource.increment()
 
             initiateSettings(isSystemDarkMode)

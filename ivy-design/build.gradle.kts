@@ -59,4 +59,5 @@ dependencies {
     implementation(libs.bundles.arrow)
     implementation(libs.bundles.kotlin)
     implementation(libs.bundles.compose)
+    implementation("androidx.compose.ui:ui-test-junit4:1.1.1")
 }

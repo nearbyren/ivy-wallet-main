@@ -74,6 +74,7 @@ fun SearchScreen(screen: Search) {
         categories = categories,
         accounts = accounts,
 
+        //构建搜索回调
         onSearch = viewModel::search
     )
 }
@@ -103,6 +104,7 @@ private fun UI(
         SearchInput(
             searchQueryTextFieldValue = searchQueryTextFieldValue,
             hint = stringResource(R.string.search_transactions),
+            //接收回调监听
             onSetSearchQueryTextField = {
                 searchQueryTextFieldValue = it
                 onSearch(it.text)
@@ -190,6 +192,7 @@ fun SearchInput(
             value = searchQueryTextFieldValue,
             hint = hint,
             onValueChanged = {
+                //接收回调监听
                 onSetSearchQueryTextField(it)
             }
         )

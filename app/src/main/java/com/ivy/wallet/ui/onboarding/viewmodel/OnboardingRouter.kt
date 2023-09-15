@@ -49,6 +49,7 @@ class OnboardingRouter(
         viewModelScope: CoroutineScope,
         restartOnboarding: () -> Unit
     ) {
+        println("我来了 initBackHandling screen = $screen - _state.value = ${_state.value}")
         nav.onBackPressed[screen] = {
             when (_state.value) {
                 OnboardingState.SPLASH -> {
@@ -96,6 +97,7 @@ class OnboardingRouter(
 
     // ------------------------------------- Step 0 - Splash ----------------------------------------
     suspend fun splashNext() {
+        println("我来了 splashNext state = ${_state.value}")
         if (_state.value == OnboardingState.SPLASH) {
             delay(1000)
 

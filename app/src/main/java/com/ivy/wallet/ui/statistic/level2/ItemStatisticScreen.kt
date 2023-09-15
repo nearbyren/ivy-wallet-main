@@ -312,7 +312,7 @@ private fun BoxWithConstraintsScope.UI(
                         deleteModalVisible = true
                     },
                     onEdit = {
-                        when {
+                        when {//进入编辑数据界面
                             account != null -> {
                                 accountModalData = AccountModalData(
                                     account = account,
@@ -321,6 +321,7 @@ private fun BoxWithConstraintsScope.UI(
                                     autoFocusKeyboard = false
                                 )
                             }
+
                             category != null -> {
                                 categoryModalData = CategoryModalData(
                                     category = category,
@@ -893,6 +894,7 @@ private fun Item(
                     )
                 }
             }
+
             category != null -> {
                 ItemIconMDefaultIcon(
                     iconName = category.icon,
@@ -910,6 +912,7 @@ private fun Item(
                     )
                 )
             }
+
             else -> {
                 // Unspecified
                 ItemIconMDefaultIcon(

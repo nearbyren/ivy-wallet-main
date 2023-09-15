@@ -114,7 +114,7 @@ fun CurrencyPicker(
         }
 
         SearchInput(searchTextFieldValue = searchTextFieldValue) {
-            println("我来了 SearchInput = " + it)
+            println("我来了 SearchInput = $it")
             searchTextFieldValue = it
         }
 
@@ -292,7 +292,7 @@ private fun CurrencyList(
         val firstLetter =
             if (currency.isCrypto) stringResource(R.string.crypto) else currency.code.first()
                 .toString()
-        println("我来了 searchQueryLowercase = $searchQueryLowercase  - firstLetter = $firstLetter - lastFirstLetter = $lastFirstLetter")
+//        println("我来了 searchQueryLowercase = $searchQueryLowercase  - firstLetter = $firstLetter - lastFirstLetter = $lastFirstLetter")
         if (firstLetter != lastFirstLetter) {
             currenciesWithLetters.add(
                 LetterDivider(
@@ -399,7 +399,7 @@ private fun LetterDividerItem(
     if (spacerTop > 0.dp) {
         Spacer(Modifier.height(spacerTop).background(Color.Cyan))
     }
-    println("我来了 spacerTop = $spacerTop  - letterDivider = ${letterDivider.letter}")
+//    println("我来了 spacerTop = $spacerTop  - letterDivider = ${letterDivider.letter}")
 
     Text(
         modifier = Modifier.padding(start = 32.dp),

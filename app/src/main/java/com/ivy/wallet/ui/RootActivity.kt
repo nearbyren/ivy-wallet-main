@@ -184,7 +184,7 @@ class RootActivity : AppCompatActivity() {
             }
 
             false -> {
-                println("我来了 navigation = $navigation")
+                println("我来了 UI  = $navigation")
                 NavigationRoot(navigation = navigation) { screen ->
                     Screens(screen)
                 }

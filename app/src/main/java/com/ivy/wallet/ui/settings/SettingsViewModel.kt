@@ -282,6 +282,7 @@ class SettingsViewModel @Inject constructor(
     }
 
     fun switchTheme() {
+        //白天 黑夜模式切换
         viewModelScope.launch {
             val currentSettings = settingsAct(Unit)
             val newTheme = when (currentSettings.theme) {

@@ -54,6 +54,7 @@ class RootViewModel @Inject constructor(
     val appLocked = _appLocked.readOnly()
 
     fun start(systemDarkMode: Boolean, intent: Intent) {
+        println("我来了 RootViewModel start ")
         viewModelScope.launch {
             TestIdlingResource.increment()
 
@@ -75,7 +76,7 @@ class RootViewModel @Inject constructor(
                 appLockEnabled = sharedPrefs.getBoolean(SharedPrefs.APP_LOCK_ENABLED, false)
                 // initial app locked state
                 _appLocked.value = appLockEnabled
-
+                println("我来了 start appLockEnabled = $appLockEnabled")
                 if (isOnboardingCompleted()) {
                     navigateOnboardedUser(intent)
                 } else {
