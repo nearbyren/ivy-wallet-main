@@ -1,22 +1,22 @@
 [versions]
-kotlin = "1.9.0"
+kotlin = "1.9.10"
 kotlin-coroutines = "1.7.3"
 ktor = "2.3.4"
-arrow = "1.2.0"
-kotest = "5.6.2"
-compose = "1.5.0"
+arrow = "1.2.1"
+kotest = "5.7.2"
+compose = "1.5.2"
 compose-compiler = "1.5.2" # It's used - don't delete it!
-compose-material3 = "1.1.1"
-glance = "1.0.0-rc01"
+compose-material3 = "1.1.2"
+glance = "1.0.0"
 hilt = "2.48"
-room = "2.6.0-beta01"
+room = "2.6.0-rc01"
 androidx-work = "2.8.1"
 
 # Linters
 detekt = "1.23.1" # https://detekt.dev/docs/gettingstarted/gradle/
 
 [libraries]
-android-gradle-plugin = { module = "com.android.tools.build:gradle", version = "8.1.0" }
+android-gradle-plugin = { module = "com.android.tools.build:gradle", version = "8.1.2" }
 
 # Kotlin
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -52,7 +52,7 @@ compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "
 compose-runtime-livedate-temp = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "compose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-activity = { module = "androidx.activity:activity-compose", version = "1.7.2" }
-compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version = "2.6.1" }
+compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version = "2.6.2" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-coil = { module = "io.coil-kt:coil-compose", version = "2.4.0" }
 glance = { module = "androidx.glance:glance", version.ref = "glance" }
@@ -73,18 +73,18 @@ hilt-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", 
 hilt-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
 
 # Google
-google-services = { module = "com.google.gms:google-services", version = "4.3.15" }
+google-services = { module = "com.google.gms:google-services", version = "4.4.0" }
 google-playservices-auth = { module = "com.google.android.gms:play-services-auth", version = "20.7.0" }
 google-billing = { module = "com.android.billingclient:billing-ktx", version = "6.0.1" }
 google-play-core = { module = "com.google.android.play:core", version = "1.10.3" }
 google-play-core-ktx = { module = "com.google.android.play:core-ktx", version = "1.8.1" }
-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics", version = "18.4.1" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics", version = "18.4.3" }
 firebase-crashlytics-gradle-plugin = { module = "com.google.firebase:firebase-crashlytics-gradle", version = "2.9.9" }
 
 # AndroidX
 androidx-security = { module = "androidx.security:security-crypto", version = "1.0.0" }
 androidx-biometrics = { module = "androidx.biometric:biometric", version = "1.2.0-alpha05" }
-androidx-activity = { module = "androidx.activity:activity-ktx", version = "1.8.0-alpha07" }
+androidx-activity = { module = "androidx.activity:activity-ktx", version = "1.8.0-rc01" }
 appcompat-activity = { module = "androidx.appcompat:appcompat", version = "1.7.0-alpha03" }
 androidx-work = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-work" }
 androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "androidx-work" }
@@ -103,7 +103,7 @@ opencsv-apache-commons = { module = "org.apache.commons:commons-lang3", version 
 detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 detekt-ruleset-compiler = { module = "com.braisgabin.detekt:kotlin-compiler-wrapper", version = "0.0.4" }
 detekt-ruleset-ktlint = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
-detekt-ruleset-compose = { module = "io.nlopez.compose.rules:detekt", version = "0.2.1" }
+detekt-ruleset-compose = { module = "io.nlopez.compose.rules:detekt", version = "0.3.0" }
 
 [bundles]
 kotlin = [
@@ -179,5 +179,5 @@ opencsv = [
 ]
 
 [plugins]
-gradleWrapperUpgrade = { id = "org.gradle.wrapper-upgrade", version = "0.11.2" }
+gradleWrapperUpgrade = { id = "org.gradle.wrapper-upgrade", version = "0.11.4" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
