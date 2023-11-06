@@ -13,7 +13,7 @@ room = "2.6.0-beta01"
 androidx-work = "2.8.1"
 
 # Linters
-detekt = "1.23.1" # https://detekt.dev/docs/gettingstarted/gradle/
+detekt = "1.23.3" # https://detekt.dev/docs/gettingstarted/gradle/
 
 [libraries]
 android-gradle-plugin = { module = "com.android.tools.build:gradle", version = "8.1.0" }
